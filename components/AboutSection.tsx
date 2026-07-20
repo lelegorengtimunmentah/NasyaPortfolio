@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
+import SectionHeader from '@/components/SectionHeader'
 import type { AboutData } from '@/lib/data'
 
 interface AboutSectionProps {
@@ -14,32 +15,45 @@ export default function AboutSection({ about }: AboutSectionProps) {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="py-20 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Tentang Saya</h2>
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          {/* Photo column */}
+    <section ref={ref} className="section-padding bg-white relative overflow-hidden">
+      <div aria-hidden="true" className="absolute inset-0 mesh-bg pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto">
+        <SectionHeader
+          badge="Profil"
+          title="Tentang Saya"
+          description="Perjalanan akademik dan passion dalam dunia psikologi"
+        />
+
+        <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
             transition={{ duration: 0.6 }}
+            className="relative shrink-0"
           >
+            <div
+              aria-hidden="true"
+              className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-indigo-100 to-teal-50 -z-10"
+            />
             <Image
               src="/fotodiri/fotodiri.jpeg"
               alt="Foto Muhammad Choirun Nasya"
               width={400}
               height={400}
-              className="rounded-2xl object-cover shadow-lg w-full max-w-sm"
+              className="rounded-2xl object-cover shadow-xl shadow-indigo-500/10 w-full max-w-sm ring-1 ring-slate-100"
             />
           </motion.div>
 
-          {/* Text column */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="glass-card p-8 lg:p-10"
           >
-            <p className="text-gray-700 leading-relaxed">{about.biography}</p>
+            <p className="text-slate-600 leading-[1.85] text-base lg:text-[1.05rem] text-justify">
+              {about.biography}
+            </p>
           </motion.div>
         </div>
       </div>

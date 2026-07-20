@@ -1,8 +1,16 @@
-import { Inter } from 'next/font/google'
+import { Plus_Jakarta_Sans, Fraunces } from 'next/font/google'
 import type { Metadata } from 'next'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-jakarta',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+})
 
 export const metadata: Metadata = {
   title: 'Muhammad Choirun Nasya | Portfolio',
@@ -22,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="id" className={inter.variable}>
+    <html lang="id" className={`${jakarta.variable} ${fraunces.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )
