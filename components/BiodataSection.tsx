@@ -43,7 +43,7 @@ export default function BiodataSection({ biodata }: BiodataSectionProps) {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="section-padding bg-slate-50/80 relative">
+    <section ref={ref} className="section-padding bg-slate-50/80 dark:bg-slate-900/50 relative">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           badge="Identitas"
@@ -66,7 +66,7 @@ export default function BiodataSection({ biodata }: BiodataSectionProps) {
                 key={field.label}
                 role="article"
                 variants={item}
-                className="group card-hover bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex items-start gap-4"
+                className="group card-hover bg-card rounded-2xl p-6 border border-border shadow-sm flex items-start gap-4"
               >
                 <div
                   className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${gradient} shadow-lg shadow-indigo-500/20 transition-transform duration-300 group-hover:scale-110`}
@@ -74,10 +74,10 @@ export default function BiodataSection({ biodata }: BiodataSectionProps) {
                   <IconComponent className="h-5 w-5 text-white" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     {field.label}
                   </p>
-                  <p className="mt-1 font-semibold text-slate-800 leading-snug">{field.value}</p>
+                  <p className="mt-1 font-semibold text-foreground leading-snug">{field.value}</p>
                 </div>
               </motion.div>
             )

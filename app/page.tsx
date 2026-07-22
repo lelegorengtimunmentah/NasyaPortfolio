@@ -4,6 +4,9 @@ import HeroSection from '@/components/HeroSection'
 import AboutSection from '@/components/AboutSection'
 import BiodataSection from '@/components/BiodataSection'
 import PrestasiSection from '@/components/PrestasiSection'
+import RiwayatPrestasiSection from '@/components/RiwayatPrestasiSection'
+import RiwayatPendidikanSection from '@/components/RiwayatPendidikanSection'
+import OrganisasiSection from '@/components/OrganisasiSection'
 import GallerySection from '@/components/GallerySection'
 import MotivasiSection from '@/components/MotivasiSection'
 import Footer from '@/components/Footer'
@@ -25,6 +28,9 @@ export default function Page() {
         <section id="prestasi">
           <PrestasiSection achievements={siteData.achievements} />
         </section>
+        <RiwayatPrestasiSection riwayatPrestasi={siteData.riwayatPrestasi} />
+        <RiwayatPendidikanSection riwayatPendidikan={siteData.riwayatPendidikan} />
+        <OrganisasiSection organisasi={siteData.organisasi} />
         <section id="galeri">
           <GallerySection gallery={siteData.gallery} />
         </section>

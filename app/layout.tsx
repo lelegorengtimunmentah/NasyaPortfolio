@@ -15,14 +15,27 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: 'Muhammad Choirun Nasya | Portfolio',
   description:
-    'Portfolio resmi Muhammad Choirun Nasya, Mahasiswa Fakultas Psikologi UIN Maulana Malik Ibrahim Malang.',
+    'Portfolio resmi Muhammad Choirun Nasya, siswa berprestasi SMA Nuris Jember dengan berbagai pencapaian olimpiade sains nasional.',
   openGraph: {
     title: 'Muhammad Choirun Nasya | Portfolio',
     description:
-      'Portfolio resmi Muhammad Choirun Nasya, Mahasiswa Fakultas Psikologi UIN Maulana Malik Ibrahim Malang.',
+      'Portfolio resmi Muhammad Choirun Nasya, siswa berprestasi SMA Nuris Jember dengan berbagai pencapaian olimpiade sains nasional.',
     type: 'website',
   },
 }
+
+// Inline script that runs before first paint to avoid dark-mode flash
+const themeScript = `
+(function(){
+  try {
+    var stored = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark' || (!stored && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch(e){}
+})();
+`
 
 export default function RootLayout({
   children,
@@ -30,7 +43,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="id" className={`${jakarta.variable} ${fraunces.variable}`}>
+    <html lang="id" className={`${jakarta.variable} ${fraunces.variable}`} suppressHydrationWarning>
+      {/* eslint-disable-next-line @next/next/no-before-interactive-script-component */}
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )

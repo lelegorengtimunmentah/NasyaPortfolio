@@ -32,7 +32,7 @@ export default function GallerySection({ gallery }: GallerySectionProps) {
   const items = gallery.map((filename, i) => (
     <motion.div key={i} variants={item} className="break-inside-avoid mb-5">
       {errorIndices.has(i) ? (
-        <div className="w-full h-48 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400 text-sm border border-slate-200">
+        <div className="w-full h-48 rounded-2xl bg-muted flex items-center justify-center text-muted-foreground text-sm border border-border">
           Gambar tidak tersedia
         </div>
       ) : (
@@ -72,7 +72,7 @@ export default function GallerySection({ gallery }: GallerySectionProps) {
   )
 
   return (
-    <section ref={ref} className="section-padding bg-slate-50/80" id="galeri">
+    <section ref={ref} className="section-padding bg-slate-50/80 dark:bg-slate-900/50" id="galeri">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           badge="Dokumentasi"

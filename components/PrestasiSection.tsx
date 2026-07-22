@@ -37,7 +37,7 @@ export default function PrestasiSection({ achievements }: PrestasiSectionProps) 
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="section-padding bg-white relative overflow-hidden">
+    <section ref={ref} className="section-padding bg-background relative overflow-hidden">
       <div aria-hidden="true" className="absolute inset-0 mesh-bg pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto">
@@ -59,7 +59,7 @@ export default function PrestasiSection({ achievements }: PrestasiSectionProps) 
               variants={item}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="group bg-white rounded-2xl overflow-hidden cursor-pointer border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 transition-shadow duration-300"
+              className="group bg-card rounded-2xl overflow-hidden cursor-pointer border border-border shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/10 transition-shadow duration-300"
               onClick={() => { setLightboxIndex(i); setLightboxOpen(true) }}
             >
               <div className="relative h-52 bg-slate-100 overflow-hidden">
@@ -91,17 +91,17 @@ export default function PrestasiSection({ achievements }: PrestasiSectionProps) 
               </div>
 
               <div className="p-5 space-y-2">
-                <h3 className="font-bold text-slate-900 leading-snug group-hover:text-indigo-700 transition-colors">
+                <h3 className="font-bold text-foreground leading-snug group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                   {achievement.title}
                 </h3>
-                <p className="text-sm font-medium text-indigo-600">{achievement.eventName}</p>
-                <p className="text-sm text-slate-500">{achievement.organizer}</p>
-                <div className="flex items-center gap-1.5 text-sm text-slate-400 pt-1">
+                <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">{achievement.eventName}</p>
+                <p className="text-sm text-muted-foreground">{achievement.organizer}</p>
+                <div className="flex items-center gap-1.5 text-sm text-muted-foreground pt-1">
                   <Calendar className="h-3.5 w-3.5 shrink-0" />
                   {achievement.date}
                 </div>
                 {achievement.team && achievement.team.length > 0 && (
-                  <div className="flex items-start gap-1.5 text-xs text-slate-500 pt-1 border-t border-slate-100 mt-3 pt-3">
+                  <div className="flex items-start gap-1.5 text-xs text-muted-foreground pt-1 border-t border-border mt-3 pt-3">
                     <Users className="h-3.5 w-3.5 shrink-0 mt-0.5" />
                     <span>{achievement.team.join(', ')}</span>
                   </div>
