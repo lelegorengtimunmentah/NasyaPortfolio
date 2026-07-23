@@ -73,7 +73,7 @@ export interface SiteData {
 export const siteData: SiteData = {
   hero: {
     name: 'Muhammad Choirun Nasya',
-    title: 'Siswa SMA Nuris Jember & Calon Mahasiswa Psikologi',
+    title: 'Bachelor of Psychology',
     description:
       'Pemuda berprestasi dari Jember dengan semangat tinggi dalam ilmu pengetahuan, bahasa, dan pengembangan diri. Aktif di berbagai olimpiade sains nasional dan organisasi.',
   },
@@ -85,9 +85,9 @@ export const siteData: SiteData = {
 
   biodata: [
     { label: 'Nama', value: 'Muhammad Choirun Nasya', icon: 'User' },
-    { label: 'Sekolah', value: 'SMA Nuris Jember', icon: 'GraduationCap' },
-    { label: 'Kelas', value: 'XI IPS 1', icon: 'BookOpen' },
-    { label: 'Minat', value: 'Psikologi & Sains', icon: 'Brain' },
+    { label: 'Universitas', value: 'UIN Malik Ibrahim Malang', icon: 'GraduationCap' },
+    { label: 'Prodi', value: 'Ilmu Psikologi', icon: 'BookOpen' },
+    { label: 'Fakultas', value: 'Psikologi', icon: 'Brain' },
     { label: 'Alamat', value: 'Jember, Jawa Timur', icon: 'MapPin' },
     { label: 'Umur', value: '18 Tahun', icon: 'Calendar' },
   ],
